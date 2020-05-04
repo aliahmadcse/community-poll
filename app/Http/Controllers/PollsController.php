@@ -57,4 +57,10 @@ class PollsController extends Controller
             501
         );
     }
+
+    public function questions(Request $request, Poll $poll)
+    {
+        $questions = $poll->questions;
+        return response()->json($questions, 200);
+    }
 }
