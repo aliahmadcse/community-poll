@@ -14,10 +14,6 @@ class Poll extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            'poll title' => mb_strimwidth($this->title, 0, 10, '...'),
-            'questions' => $this->questions,
-        ];
-        // return parent::toArray($request);
+        return parent::toArray($request);
     }
 }
