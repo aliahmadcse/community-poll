@@ -20,9 +20,9 @@ class PollsController extends Controller
         if (is_null($poll)) {
             return response()->json(null, 404);
         }
-        $poll = Poll::with('questions')->findOrFail($id);
+        $poll = Poll::with('questions:poll_id,title,question')
+            ->findOrFail($id);
         $response = new PollResource($poll, 200);
-        // dd($response->questions);
         return response()->json($response, 200);
     }
 
